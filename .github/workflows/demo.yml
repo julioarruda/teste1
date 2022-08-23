@@ -1,3 +1,14 @@
+# name: Issue Iteraction
+
+# on:
+#   issues:
+#     types: [opened]
+# jobs:
+#   commentCreated:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - run: echo "${{ github.event.issue.title }}"
+
 name: Issue Iteraction
 
 on:
@@ -6,5 +17,7 @@ on:
 jobs:
   commentCreated:
     runs-on: ubuntu-latest
+    env: 
+      ISSUE_TITLE: ${{ github.event.issue.title }}
     steps:
-      - run: echo "${{ github.event.issue.title }}"
+      - run: echo "$ISSUE_TITLE"

@@ -19,5 +19,8 @@ jobs:
 
       - name: Run a multi-line script
         run: |
+          rand=$(( ( RANDOM % 10 )  + 1 ))
+          sec=$(date +%S)
+          sleep $(($rand + $sec))
           echo Add other actions to build,
           echo test, and deploy your project.

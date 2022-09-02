@@ -1,9 +1,10 @@
 name: Comncurrency
 
 on:
-  workflow_dispatch:
+  issues:
+    types: [opened]
 
-concurrency: demo_badge
+concurrency: gera_badge
 
 jobs:
   build:

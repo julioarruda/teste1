@@ -21,12 +21,13 @@ jobs:
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
+    if: ${{ contains(github.event.head_commit.message, 'feat:') && (github.event_name == 'workflow_dispatch')}}
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
 
       # Runs a single command using the runners shell
-      - if: ${{ contains(github.event.head_commit.message, 'feat:') && (github.event_name == 'workflow_dispatch')}}
+      
       - name: Run a one-line script
         run: echo Hello, world!
 
